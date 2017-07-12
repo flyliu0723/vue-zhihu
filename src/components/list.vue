@@ -1,12 +1,16 @@
 <template>
     <div id="list">
         <div class="list" v-for="data in con">
-            <div class="intro-title">
-                {{data.title}}
-            </div>
-            <div class="img">
-                <img :src="data.images[0]" alt="">
-            </div>
+            <router-link :to="{name:'details',query:{id:data.id}}">
+                <div class="intro-title">
+                    {{data.title}}
+                </div>
+                <div class="img">
+                    <img :src="data.images[0]">
+                    <image :src="data.images[0]"></image>
+                </div>
+            </router-link>
+
         </div>
 
     </div>
@@ -24,10 +28,20 @@
             const _this = this;
             this.$http.jsonp('http://localhost:4567?url=http://news-at.zhihu.com/api/4/news/latest')
                     .then(function (res) {
-                        console.log(res.body);
+//                        console.log(res.body);
                         _this.con = res.body.stories
+
                     })
-        }
+        },
+        methods:{
+
+        },
+        beforeRouteUpdate (to, from, next) {
+            console.log(to)
+            if(to.name=='details'){
+                next()
+            }
+        },
     }
 </script>
 
@@ -66,6 +80,10 @@
         margin-top: 0.05rem;
         margin-bottom: 0.05rem;
         float: left;
+    }
+    .img image{
+        width: 0.9rem;
+        height: 0.9rem;
     }
     .img img{
         width: 0.9rem;

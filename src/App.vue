@@ -2,10 +2,8 @@
   <div id="app">
     <!--头部-->
     <headers></headers>
-    <!--首页轮播图-->
-    <slide></slide>
-    <!--内容部分-->
-    <lists></lists>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -24,10 +22,7 @@ export default {
       headers,slide,lists
     },
   created(){
-    this.$http.jsonp('http://localhost:4567?url=http://news-at.zhihu.com/api/4/news/latest')
-            .then(function (res) {
-              console.log(res.body)
-            })
+
   }}
 </script>
 

@@ -5,7 +5,7 @@
         <swiper :options="swiperOption"  ref="mySwiper">
             <!-- 这部分放你要渲染的那些内容 -->
             <swiper-slide v-for="item in banners">
-                <img src="item">
+                <img :src="item">
             </swiper-slide>
             <!-- 这是轮播的小圆点 -->
             <div class="swiper-pagination" slot="pagination"></div>
