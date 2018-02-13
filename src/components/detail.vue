@@ -1,5 +1,5 @@
 <template>
-    <div v-html="body" style="z-index: 10">
+    <div v-html="body" class="detail" style="z-index: 10；text-align:left">
 
     </div>
 </template>
@@ -16,7 +16,6 @@
             const _this = this;
             this.$http.jsonp('http://localhost:4567?url=http://news-at.zhihu.com/api/4/news/'+this.$route.query.id)
                     .then(function (res) {
-                        console.log(res.body);
                         _this.body = res.body.body;
                         _this.css = res.body.css[0];
                         var obj = document.getElementById("detailcss");
@@ -27,5 +26,10 @@
 </script>
 
 <style>
-    @import "{{css}}";
+    .detail{
+        z-index: 10;
+        text-align: left;
+    }
+    @import "{{css}}"
+    
 </style>

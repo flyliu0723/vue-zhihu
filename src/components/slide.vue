@@ -4,7 +4,7 @@
         <!--<image src="https://pic3.zhimg.com/v2-e7093b89520ce137c34481a1cb917122.jpg"></image>-->
         <swiper :options="swiperOption"  ref="mySwiper">
             <!-- 这部分放你要渲染的那些内容 -->
-            <swiper-slide v-for="item in banners">
+            <swiper-slide v-for="(item,index) in banners" :key="index">
                 <img :src="item">
             </swiper-slide>
             <!-- 这是轮播的小圆点 -->
