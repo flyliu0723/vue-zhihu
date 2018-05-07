@@ -1,12 +1,13 @@
 <template>
     <div>
-        <div style="height:0.48rem;width:100%;background: #cbcbcb"></div>
+        <!-- <div style="height:0.48rem;width:100%;background: #cbcbcb"></div> -->
         <div class="content-container" @touchstart="touchStart($event)" @touchmove="touch($event)" @mousewheel="wheel($event)">
             <slot></slot>
         </div>
     </div>
 </template>
 <script>
+import "babel-polyfill"
     export default {
         props: ['scrollLoad'],
         data() {

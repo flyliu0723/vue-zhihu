@@ -1,14 +1,10 @@
 <template>
   <div id="app">
-    <!--头部-->
-    <headers></headers>
-
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import headers from './components/header.vue'
   import slide from './components/slide.vue'
   import lists from './components/list.vue'
 export default {
@@ -19,21 +15,21 @@ export default {
     }
   },
     components:{
-      headers,slide,lists
+      slide,lists
     },
   created(){
 
   }}
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0.06rem;
 }
 
 h1, h2 {
@@ -47,7 +43,7 @@ ul {
 
 li {
   display: inline-block;
-  margin: 0 10px;
+  // margin: 0 10px;
 }
 
 a {

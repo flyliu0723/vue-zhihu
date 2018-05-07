@@ -10,7 +10,10 @@
     import createLogger from 'vuex/dist/logger'
     const state = {
         con:'1111',
-        sta:'sdasd'
+        sta:'sdasd',
+        list: [],
+        banner: [],
+        dailyDetail: '',
     };
     export default new Vuex.Store({
         state,

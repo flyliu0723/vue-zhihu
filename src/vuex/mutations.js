@@ -11,5 +11,15 @@ export default {
     },
     [types.DELETE_CON](state){
         state.con = ''
+    },
+
+    [types.LIST_UPDATE](state, data){
+        state.list = data
+    },
+    [types.BANNER_UPDATE](state, data){
+        state.banner = data
+    },
+    [types.DAILY_DETAIL](state, data){
+        state.dailyDetail = data
     }
 }
