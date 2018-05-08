@@ -36,7 +36,7 @@
 <style>
     #slide{
         width: 100%;
-        height: 2.2rem;
+        /* height: 2.2rem; */
         margin-top: 0.4rem;
     }
 </style>

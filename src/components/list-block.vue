@@ -4,13 +4,24 @@
             {{ data.title }}
         </div>
         <div class="img">
-            <img :src="data.picurl">
+            <img :src="data.images[0] | re">
         </div>
     </div>
 </template>
 <script>
 export default {
-  props:['data']
+  props:['data'],
+  filters: {
+      re(val){
+          return val.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p')
+      }
+  },
+  watch:{
+      data(n, o){
+          console.log(n);
+          
+      }
+  }
 }
 </script>
 <style lang="scss" scoped>

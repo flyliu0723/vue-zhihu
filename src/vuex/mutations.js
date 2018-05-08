@@ -14,12 +14,18 @@ export default {
     },
 
     [types.LIST_UPDATE](state, data){
-        state.list = data
+        state.list.push({
+            title: data.title,
+            data: data.data
+        })
     },
     [types.BANNER_UPDATE](state, data){
         state.banner = data
     },
     [types.DAILY_DETAIL](state, data){
         state.dailyDetail = data
+    },
+    [types.DAILY_TOPIC](state, data){
+        state.topicDaily = data
     }
 }

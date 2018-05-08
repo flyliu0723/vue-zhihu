@@ -18,7 +18,7 @@ export const deleteCon = ({commit}) =>{
 export const updateList = async ({ commit }, _this) => {
     let isOk = await _this.$http.jsonp('http://localhost:4567?url=http://news-at.zhihu.com/api/4/news/latest')
         .then(d => {
-            commit('LIST_UPDATE', d.body.stories)
+            commit('LIST_UPDATE', {title: '今日要闻', data: d.body.stories})
             commit('BANNER_UPDATE', d.body.top_stories)
             return true
         },
@@ -27,6 +27,28 @@ export const updateList = async ({ commit }, _this) => {
         })
     return isOk
 }
+/**
+ * @description 加载更多
+ * @param {*} param0 
+ * @param {*} param 
+ */
+export const updateMoreList = async ({ commit }, param) => {
+    let isOk = await param._this.$http.jsonp(`http://localhost:4567?url=http://news.at.zhihu.com/api/4/news/before/${param.date.split('-').join('')}`)
+        .then(d => {
+            commit('LIST_UPDATE', {title: param.date, data: d.body.stories})
+            return true
+        },
+        e => {
+            return false
+        })
+    return isOk
+}
+/**
+ * 
+ * @param {*} param0 
+ * @param {*} param 
+ * @description 获取详情
+ */
 export const dailyDetail = async ({ commit }, param) => {
     let isOk = await param._this.$http.jsonp(`http://localhost:4567?url=http://news-at.zhihu.com/api/4/news/${param.id}`)
         .then(d => {
@@ -35,5 +57,18 @@ export const dailyDetail = async ({ commit }, param) => {
         }, e=> {
             return false
         })
+        return isOk
+}
+
+
+export const topicDaily = async ({ commit }, param) => {
+    let isOk = await param._this.$http.jsonp('http://localhost:4567?url=http://news-at.zhihu.com/api/4/themes')
+        .then(d => {
+            commit('DAILY_TOPIC', d.body.others)
+            return true
+        }, e => {
+            return false
+        })
+        return isOk
 }
 

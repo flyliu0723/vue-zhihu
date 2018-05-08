@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <span class="category"></span>
+        <span class="category" @click="showTopic"></span>
         <span class="title">首页</span>
         <span class="bell"></span>
         <span class="three"></span>
@@ -12,6 +12,11 @@
         data () {
             return {
 
+            }
+        },
+        methods:{
+            showTopic(){
+                this.$emit('showT', true)
             }
         }
     }
