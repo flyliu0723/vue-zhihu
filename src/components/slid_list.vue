@@ -26,7 +26,7 @@
             lists, slide, headers, topicList, 
         },
         created(){
-            this.$store.dispatch('topicDaily', {_this: this})
+            
         },
         methods:{
             showT(op){
