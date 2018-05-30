@@ -27,5 +27,8 @@ export default {
     },
     [types.DAILY_TOPIC](state, data){
         state.topicDaily = data
+    },
+    [types.DETAIL_TOPIC](state, data){
+        state.topicDetail = data
     }
 }

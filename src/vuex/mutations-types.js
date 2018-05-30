@@ -11,5 +11,6 @@ export const BANNER_UPDATE = 'BANNER_UPDATE';
 
 export const DAILY_DETAIL = 'DAILY_DETAIL';
 export const DAILY_TOPIC = 'DAILY_TOPIC';
+export const DETAIL_TOPIC = 'DETAIL_TOPIC';
 
 

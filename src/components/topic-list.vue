@@ -33,8 +33,6 @@ export default {
   methods:{
       /**@description 隐藏列表栏 */
       showT(){
-          console.log(999);
-          
           this.$emit('showT', false)
       },
       /**@description 个人信息 */
@@ -44,10 +42,7 @@ export default {
       },
       /**@description 专题页 */
       goTopic(id){
-          console.log(888);
-        
-        this.$router.push({name:'', query: {id: id}})
-          
+        this.$router.push({name:'topic', query: {id: id}})
       }
 
   }

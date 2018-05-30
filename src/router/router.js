@@ -8,6 +8,7 @@ vue.use(vueRouter);
 
 import detail from '../components/detail.vue'
 import index from '../components/slid_list.vue'
+import topic from '../components/topic.vue'
 
 const routes = [
     {
@@ -19,6 +20,11 @@ const routes = [
         name:'details',
         path:'/details',
         component:detail
+    },
+    {
+        name: 'topic',
+        path: '/topic',
+        component: topic
     }
 ];
 export default new vueRouter({

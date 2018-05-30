@@ -14,7 +14,8 @@
         list: [],
         banner: [],
         dailyDetail: '',
-        topicDaily: ''
+        topicDaily: '',
+        topicDetail: ''
     };
     export default new Vuex.Store({
         state,
