@@ -3,13 +3,11 @@
         <div class="detail-header">
             <span class="back" @click="back"></span>
         </div>
-
-        <div class="banner">
+        <div style="width:100%;height:0.48rem;"></div>
+        <div class="banner" v-if="banner != ''">
             <span class="title">{{ title }}</span>
-            <span class="mask"></span>
+            <span class="mask" ></span>
             <img :src="banner">
-
-            
         </div>
 
         <div v-html="body" class="detail"></div>
@@ -32,7 +30,9 @@
                 .then(d => {
                     this.body = this.$store.state.dailyDetail.body.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p')
                     this.css = this.$store.state.dailyDetail.css[0]
-                    this.banner = this.$store.state.dailyDetail.image.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p')
+                    if(this.$store.state.dailyDetail.image){
+                        this.banner = this.$store.state.dailyDetail.image.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p')
+                    }
                     this.title = this.$store.state.dailyDetail.title
                     var obj = document.getElementById("detailcss");
                         obj.setAttribute("href",this.css);
@@ -41,7 +41,7 @@
         methods:{
             /**@description 返回首页 */
             back(){
-                this.$router.replace({name:'index'})
+                this.$router.back();
             }
         }
     }
@@ -54,10 +54,13 @@
         width: 100%;
         height: 0.45rem;
         background: #7879ff;
+        position: fixed;
+        top: 0;
         .back{
             width: 0.3rem;
             height: 0.3rem;
-            background: #ffffff;
+            background: url(../assets/back.png) no-repeat;
+            background-size: 100% 100%;
             display: inline-block;
             margin: 0.08rem 0 0 0.1rem;
             float: left;

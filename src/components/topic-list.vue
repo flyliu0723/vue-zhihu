@@ -108,7 +108,8 @@ export default {
                         display: inline-block;
                         width: 0.32rem;
                         height: 0.32rem;
-                        background: #ccc;
+                        background: url(../assets/right.png) no-repeat;
+                        background-size: 100% 100%;
                         float: right;
                         margin-top: 0.1rem;
                         border-radius: 50%
